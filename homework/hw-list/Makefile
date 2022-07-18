@@ -5,7 +5,7 @@ LDFLAGS=-pthread
 
 .PHONY: all clean
 
-all: $(EXECUTABLES)
+all: $(EXECUTABLES) test
 
 pthread: pthread.o
 words: words.o word_helpers.o word_count.o
@@ -35,3 +35,6 @@ clean:
 	rm -f $(EXECUTABLES) *.o
 	cp $${tmp_dir}/*.o ./
 	rm -r $$tmp_dir
+
+test:
+	python3 test.py
